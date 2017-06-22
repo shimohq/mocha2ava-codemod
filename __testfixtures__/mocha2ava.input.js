@@ -40,4 +40,10 @@ describe('root', function () {
 
     return foo()
   })
+
+  it('it with async', async () => {
+    await foo('it with await')
+    const bar = await foo('await in assignment')
+    return foo()
+  })
 })

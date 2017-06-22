@@ -100,7 +100,7 @@ module.exports = function (fileInfo, api) {
   }
   const root = j(source)
   ;[extractDescribes, it2test, generatorWrapper, this2context].forEach(fn => fn(root, j))
-  return root.toSource()
+  return root.toSource({ quote: 'single' })
 }
 
 module.exports.parser = 'babylon'
