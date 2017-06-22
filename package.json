@@ -1,0 +1,20 @@
+{
+  "name": "mocha2ava-codemod",
+  "version": "0.0.0",
+  "description": "Transform Mocha test cases into Ava.js test case",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Lucas Woo",
+    "email": "legendecas@gmail.com",
+    "url": "github.com/legendecas"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jscodeshift": "^0.3.32",
+    "recast": "^0.12.5"
+  },
+  "devDependencies": {}
+}
