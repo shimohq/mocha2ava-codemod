@@ -10,6 +10,7 @@ function generatorWrapper(root, j) {
 }
 
 const mocha = ['it', 'before', 'after', 'beforeEach', 'afterEach']
+const describe = ['describe', 'context'];
 
 function it2test(root, j) {
   root.find(j.CallExpression)
@@ -41,7 +42,8 @@ function this2context(root, j) {
 }
 
 function extractDescribes(root, j) {
-  root.find(j.CallExpression, { callee: { name: 'describe' }})
+  root.find(j.CallExpression)
+    .filter(p => describe.indexOf(p.value.callee.name) > -1)
     .forEach(p => {
       const [description, body] = p.value.arguments
       j(body).find(j.CallExpression)
@@ -69,7 +71,8 @@ function extractDescribes(root, j) {
       expr.arguments = [j.literal(prepends + title.value), body]
       nodes.push(p.value)
     })
-  root.find(j.CallExpression, { callee: { name: 'describe' }})
+  root.find(j.CallExpression)
+    .filter(p => describe.indexOf(p.value.callee.name) > -1)
     .remove()
   root.find(j.Program)
     .forEach(p => {
