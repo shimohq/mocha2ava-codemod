@@ -1,6 +1,6 @@
 {
   "name": "mocha2ava-codemod",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Transform Mocha test cases into Ava.js test case",
   "main": "mocha2ava.js",
   "scripts": {
