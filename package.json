@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jest"
   },
+  "bin": {
+    "mocha2ava": "mocha2ava.js"
+  },
   "author": {
     "name": "Lucas Woo",
     "email": "legendecas@gmail.com",
@@ -13,7 +16,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "jscodeshift": "^0.3.32"
+    "execa": "^0.7.0",
+    "jscodeshift": "^0.3.32",
+    "meow": "^3.7.0"
   },
   "devDependencies": {
     "jest": "^20.0.4"
