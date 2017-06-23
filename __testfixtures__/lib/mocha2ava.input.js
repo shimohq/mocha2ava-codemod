@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const foo = require('bar')
 
@@ -7,7 +7,7 @@ before(function () {
   this.bar = foo
 })
 
-it('bare it', function () {
+it('bare it', () => {
   foo()
 })
 
@@ -32,9 +32,9 @@ describe('root', function () {
     this.foo(this.bar)
   })
 
-  it('it with generator', function* () {
+  it('it with generator', function * () {
     yield foo('it with generator')
-    yield* foo('yield with delegation')
+    yield * foo('yield with delegation')
 
     const bar = yield foo('yield in assignment')
 

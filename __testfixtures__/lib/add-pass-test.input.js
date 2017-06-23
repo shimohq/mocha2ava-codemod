@@ -1,3 +1,5 @@
+const foo = require('foo')
+
 test('should add a pass test statement', t => {
   foo()
 })
@@ -7,7 +9,7 @@ test('should add a pass test statement', t => {
   t.context.foo()
 })
 
-test('should also work on co wrapped impl', co.wrap(function* (t) {
+test('should also work on co wrapped impl', co.wrap(function *(t) {
   foo()
 }))
 

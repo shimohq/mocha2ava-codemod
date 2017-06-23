@@ -9,7 +9,7 @@ test.before(function(t) {
   t.context.bar = foo
 })
 
-test('bare it', function(t) {
+test('bare it', t => {
   foo()
 })
 
@@ -33,7 +33,7 @@ test('root: it with context', function(t) {
 
 test('root: it with generator', co.wrap(function*(t) {
   yield foo('it with generator')
-  yield* foo('yield with delegation')
+  yield * foo('yield with delegation')
 
   const bar = yield foo('yield in assignment')
 

@@ -4,7 +4,7 @@
   "description": "Transform Mocha test cases into Ava.js test case",
   "main": "mocha2ava.js",
   "scripts": {
-    "test": "jest"
+    "test": "standard; jest"
   },
   "bin": {
     "mocha2ava": "mocha2ava.js"
@@ -22,5 +22,10 @@
   },
   "devDependencies": {
     "jest": "^20.0.4"
+  },
+  "standard": {
+    "ignore": [
+      "__testfixtures__"
+    ]
   }
 }
