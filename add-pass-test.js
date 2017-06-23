@@ -10,6 +10,17 @@ function addPassTest(root, j) {
         impl = title
         title = null
       }
+      if (impl.type !== 'ArrowFunctionExpression' && impl.type !== 'FunctionExpression') {
+        if (impl.type === 'CallExpression' && impl.callee.type === 'MemberExpression' &&
+          impl.callee.object.type === 'Identifier' && impl.callee.object.name === 'co' &&
+          impl.callee.property.type === 'Identifier' && impl.callee.property.name === 'wrap' &&
+          impl.arguments.length === 1) {
+          impl = impl.arguments[0]
+        } else {
+          return
+        }
+      }
+
       const block = impl.body
       assert(block.type === 'BlockStatement')
 
