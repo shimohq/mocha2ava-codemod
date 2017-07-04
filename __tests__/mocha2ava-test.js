@@ -23,9 +23,8 @@ import foo from 'foo'
 it('nothing', function*() {})
 `, `
 import test from 'ava';
-import co from 'co';
 import foo from 'foo'
-test('nothing', co.wrap(function*(t) {}))
+test('nothing', function*(t) {})
 `)
 })
 

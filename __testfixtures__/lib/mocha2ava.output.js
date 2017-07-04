@@ -1,6 +1,5 @@
 'use strict';
 const test = require('ava');
-const co = require('co');
 
 const foo = require('bar')
 
@@ -31,14 +30,14 @@ test('root: it with context', function(t) {
   t.context.foo(t.context.bar)
 })
 
-test('root: it with generator', co.wrap(function*(t) {
+test('root: it with generator', function*(t) {
   yield foo('it with generator')
   yield * foo('yield with delegation')
 
   const bar = yield foo('yield in assignment')
 
   return foo()
-}))
+})
 
 test('root: it with async', async t => {
   await foo('it with await')
