@@ -17,17 +17,6 @@ test('nothing', t => {})
 `)
 })
 
-describe('lib/mocha2ava#import with co', () => {
-  defineInlineTest(transform, {}, `
-import foo from 'foo'
-it('nothing', function*() {})
-`, `
-import test from 'ava';
-import foo from 'foo'
-test('nothing', function*(t) {})
-`)
-})
-
 describe('lib/mocha2ava#require', () => {
   defineInlineTest(transform, {}, `
 const foo = require('foo')
@@ -35,6 +24,30 @@ it('nothing', () => {})
 `, `
 const test = require('ava');
 const foo = require('foo')
+test('nothing', t => {})
+`)
+})
+
+describe('lib/mocha2ava#imported', () => {
+  defineInlineTest(transform, {}, `
+import foo from 'foo'
+import test from 'ava'
+it('nothing', () => {})
+`, `
+import foo from 'foo'
+import test from 'ava'
+test('nothing', t => {})
+`)
+})
+
+describe('lib/mocha2ava#required', () => {
+  defineInlineTest(transform, {}, `
+const foo = require('foo')
+const test = require('ava')
+it('nothing', () => {})
+`, `
+const foo = require('foo')
+const test = require('ava')
 test('nothing', t => {})
 `)
 })
